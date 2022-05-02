@@ -1,0 +1,22 @@
+h1 {
+    background-color: rgb(73, 83, 92);
+    color: rgb(69, 224, 108);
+    text-align: center;
+}
+h2 {
+    text-align: left;
+    background-color: rgb(73, 83, 92);
+    color: blanchedalmond;
+
+}
+li::before {
+    content:  '\00a0\2022\00a0\00a0';
+}
+li:first-child::before {
+    content: '';
+}
+
+li {
+    display: inline;
+    margin: 2.5px;
+}

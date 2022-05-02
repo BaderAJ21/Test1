@@ -1,0 +1,16 @@
+h1 {
+    background-color: black;
+    color: rgb(182, 136, 224);
+    text-align: center;
+}
+li::before {
+    content:  '\00a0\2022\00a0\00a0';
+}
+li:first-child::before {
+    content: '';
+}
+
+li {
+    display: inline;
+    margin: 2.5px;
+}

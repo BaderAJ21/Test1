@@ -1,0 +1,62 @@
+<html>
+<head>
+<title> CSC-227 Final Project</title>
+<link rel="stylesheet" type="text/css" href="fpCSSTest.css" />
+</head>
+
+<body>
+<form id = "myForm">
+
+<input type = "text" onfocus = "this.value='' " id = "myName" value = "Please enter your name.", size = "25">
+<br></br>
+<input type = "text" onfocus = "this.value='' " id = "myAddress" value = "Please enter your address.", size = "35">
+<br></br>
+<input type = "text" onfocus = "this.value='' " id = "myPhone" value = "Please enter your phone number.", size = "25">
+<br></br>
+<input type = "text" onfocus = "this.value='' " id = "myEmail" value = "Please enter your email address.", size = "25">
+<br></br>
+<input type = "text" onfocus = "this.value='' " id = "myLinkedIn" value = "Please enter your LinkedIn URL.", size = "25">
+<br></br>
+<input type = "text" onfocus = "this.value='' " id = "myPortfolio" value = "Please enter your Portfolio Link if applicable.", size = "35">
+<br></br>
+<textarea ROWS = "20", COLS = "40" id = "mySkills" placeholder= "Please enter your notable skills with the skills seperated by a COMMA ( , )"></textarea>
+<br></br>
+<input type = "button" id = "myButton" value = "Create HTML on-the-fly">
+</form>
+<script>
+    document.getElementById("myButton").addEventListener('click',myWindow)
+    function myWindow()
+    {
+        visitorName = document.getElementById("myName").value;
+        visitorAddress = document.getElementById("myAddress").value;
+        visitorPhone = document.getElementById("myPhone").value;
+        visitorEmail = document.getElementById("myEmail").value;
+        visitorLinkedIn = document.getElementById("myLinkedIn").value;
+        visitorPortfolio = document.getElementById("myPortfolio").value;
+        myHeader = ("<html><head><link rel='stylesheet' type='text/css' href='fpCSSTest.css' /></head><h1>"+visitorName+"'s Contact Info</h1><ul><li>"+ visitorName +"</li> <li>"+ visitorAddress +"</li> <li>" + visitorPhone + "</li> <li>" + visitorEmail + "</li> <li>"+ visitorLinkedIn +"</li> <li>" + visitorPortfolio + "</li> </ul></html>");
+        let mySkills = document.getElementById("mySkills").value;
+
+        skillsArray = mySkills.split(",");
+        /*skillsArray.forEach((skill) => {
+            let li1 = document.createElement("li");
+            li1.innerText = skill;
+            skillsArray.appendChild(li1);
+            
+        });*/
+        skills = ('<ul>');
+        skills += ('<h2>Notable Skills</h2>');
+        skillsArray.forEach(function(skill) {
+            skills += '<li>' + skill + '</li>';
+        });
+        skills += ('</ul>');
+       /* myText = ("<html>\n<head>\n<title>Welcome</title>\n</head>\n<body>\n");
+        myText += ("Hello " + visitorName + ", this page was created on-the-fly!");
+        myText += ("</body>\n</html>");
+       */
+        flyWindow = window.open('about:blank','myPop','width=600,height=600,left=600,top=600');
+        flyWindow.document.write(myHeader);
+        flyWindow.document.write(skills);
+    }
+    </script>
+</body>
+</html>
